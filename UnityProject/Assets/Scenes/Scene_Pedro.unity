@@ -374,11 +374,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: child
       objectReference: {fileID: 0}
-    - target: {fileID: 2561164751101441475, guid: 85280f075b3317f44b6f55346ab4de16,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 8919350964676883312, guid: 85280f075b3317f44b6f55346ab4de16,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -387,7 +382,7 @@ PrefabInstance:
     - target: {fileID: 8919350964676883312, guid: 85280f075b3317f44b6f55346ab4de16,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.1
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 8919350964676883312, guid: 85280f075b3317f44b6f55346ab4de16,
         type: 3}
@@ -435,47 +430,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1820399953, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
-      propertyPath: speedMultiplier
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820399953, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
-      propertyPath: maxSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820399953, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
-      propertyPath: pctMaxSpeedWalk
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820399953, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
       propertyPath: lifeTime
-      value: 120
+      value: 30
       objectReference: {fileID: 0}
-    - target: {fileID: 968210160, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820399954, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820399954, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820399954, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
-      propertyPath: m_Mass
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820399954, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8120059318871584573, guid: 85280f075b3317f44b6f55346ab4de16,
-        type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 7d53618cd1c1e3849996279d9c697ee2,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
 --- !u!1 &1252463955
@@ -883,6 +840,16 @@ PrefabInstance:
         type: 3}
       propertyPath: childDistance
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225822656702651769, guid: 6a65a8a6208907c44b20d3dae4796b23,
+        type: 3}
+      propertyPath: targetCamAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225822656702651769, guid: 6a65a8a6208907c44b20d3dae4796b23,
+        type: 3}
+      propertyPath: pointAtChildTime
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a65a8a6208907c44b20d3dae4796b23, type: 3}

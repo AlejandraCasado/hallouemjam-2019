@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum childState {idle, walk, run, die, checkMask};
+public enum childState {idle, walk, run, die, checkMask, showFace};
 
 public class script_childBehaviour : MonoBehaviour
 {
@@ -11,9 +11,10 @@ public class script_childBehaviour : MonoBehaviour
     const string trigger_run = "run";
     const string trigger_die = "die";
     const string trigger_checkMask = "checkMask";
+    const string trigger_showFace = "showFace";
     Animator anim;
     Rigidbody rb;
-    childState state = childState.walk;
+    public childState state = childState.idle;
     [Header("PROPERTIES")]
     public bool asthmatic = false;
     [SerializeField] float lifeTime = 2f;
@@ -28,19 +29,27 @@ public class script_childBehaviour : MonoBehaviour
     [SerializeField] float minTimeToChangeDir = 0f;
     [SerializeField] float rangeTimeToChangeDir = 1f;
     Vector3 direction = Vector3.zero;
-    
+
+
+    //CHECKING
+    [HideInInspector] public bool checkedMask = false;
+    float time = 0f;
+    float positionCheckTime = 0f;
+    float angleToRot = 0f;
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         //Debug.Log("child generated");
         anim = GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody>();
-        changeState(state);
+        if(state != childState.idle) changeState(state);
         StartCoroutine("changeDir");
 
         direction = Vector3.right;
+
+        positionCheckTime = script_gameController.character.GetComponent<script_characterController>().pointAtChildTime;
         
     }
 
@@ -74,21 +83,35 @@ public class script_childBehaviour : MonoBehaviour
             switch (s)
             {
                 case childState.idle:
+                    rb.isKinematic = false;
                     anim.SetTrigger(trigger_idle);
                     break;
 
                 case childState.walk:
+                    rb.isKinematic = false;
                     anim.SetTrigger(trigger_walk);
                     break;
 
                 case childState.run:
+                    rb.isKinematic = false;
                     anim.SetTrigger(trigger_run);
                     break;
                 case childState.die:
+                    rb.isKinematic = true;
                     anim.SetTrigger(trigger_die);
                     break;
                 case childState.checkMask:
+                    checkedMask = true;
+                    rb.isKinematic = true;
+                    time = 0f;
+                    Vector3 from = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+                    Vector3 to = Vector3.ProjectOnPlane(script_gameController.character.transform.position - transform.position, Vector3.up).normalized;
+                    angleToRot = Vector3.SignedAngle(from, to, Vector3.up);
                     anim.SetTrigger(trigger_checkMask);
+                    break;
+                case childState.showFace:
+                    rb.isKinematic = true;
+                    anim.SetTrigger(trigger_showFace);
                     break;
             }
             //Debug.Log(s);
@@ -142,8 +165,16 @@ public class script_childBehaviour : MonoBehaviour
 
     void behaveCheckMask()
     {
-        Debug.Log("character is at " + script_gameController.character.transform.position);
+        //Debug.Log("character is at " + script_gameController.character.transform.position);
+        time += Time.fixedDeltaTime;
+
+        transform.RotateAround(transform.position, Vector3.up, angleToRot * Time.fixedDeltaTime / positionCheckTime);
+
+        if (time > positionCheckTime) changeState(childState.showFace);
+        Debug.Log("checking mask");
     }
+
+    
 
     IEnumerator changeDir()
     {
@@ -178,11 +209,11 @@ public class script_childBehaviour : MonoBehaviour
 
     void pointToDir()
     {
-        float angle = Vector3.SignedAngle(transform.forward, (transform.position + direction).normalized, Vector3.up);
+        float angle = Vector3.SignedAngle(transform.forward, direction, Vector3.up);
         Debug.Log(angle);
-        if (Mathf.Abs(angle) < 0.5f) transform.LookAt(transform.position + direction);
-        else transform.RotateAround(transform.position, Vector3.up, angle * Time.fixedDeltaTime * pointToDirForce);
-
+        //if (Mathf.Abs(angle) < 5f) transform.LookAt(transform.position + direction);
+        //else transform.RotateAround(transform.position, Vector3.up, angle * Time.fixedDeltaTime * pointToDirForce);
+        rb.AddTorque(new Vector3(0f, angle * Time.fixedDeltaTime * pointToDirForce, 0f));
     }
 
 }

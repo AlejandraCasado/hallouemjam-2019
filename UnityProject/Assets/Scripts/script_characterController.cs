@@ -182,7 +182,8 @@ public class script_characterController : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, rayDistance, layerMask))
             {
-                startCheckingKid(hit.transform);
+                if(!hit.transform.GetComponent<script_childBehaviour>().checkedMask) startCheckingKid(hit.transform);
+
                 /*script_childBehaviour child = hit.transform.GetComponent<script_childBehaviour>();
                 if (child)
                     if (child.asthmatic) Debug.Log("He is asthmatic");
@@ -215,7 +216,7 @@ public class script_characterController : MonoBehaviour
         Vector3 to = Vector3.ProjectOnPlane(childPursued.position - transform.position, Vector3.up).normalized;
         aux = Vector3.SignedAngle(from, to, Vector3.up);
         anglesToRotateChar = aux;
-        Debug.Log(aux);
+        //Debug.Log(aux);
 
 
         //POSITION
