@@ -295,6 +295,7 @@ public class script_childBehaviour : MonoBehaviour
             changeState(childState.idle);
         } else if ((state == childState.idle || state == childState.walk) && other.gameObject.layer == chaosLayer)
         {
+            Debug.Log("chaos activated");
             changeState(childState.run);
         }
     }

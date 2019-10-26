@@ -10,7 +10,7 @@ public class script_childGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnManyKids(100);
+        spawnManyKids(10);
     }
 
 

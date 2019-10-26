@@ -48,6 +48,10 @@ public class script_characterController : MonoBehaviour
     [SerializeField] CapsuleCollider colTay;
     [SerializeField] float taylorTime = 1f;
 
+    //OUTLINE
+    Material lastMaterial;
+    Material actualMaterial;
+
 
     //FUNCTIONS
     void Start()
@@ -61,6 +65,7 @@ public class script_characterController : MonoBehaviour
     void Update()
     {
         inputCheck();
+        outlineHandler();
     }
 
     private void FixedUpdate()
@@ -194,12 +199,6 @@ public class script_characterController : MonoBehaviour
             if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, rayDistance, layerMask))
             {
                 if(!hit.transform.GetComponent<script_childBehaviour>().checkedMask) startCheckingKid(hit.transform);
-
-                /*script_childBehaviour child = hit.transform.GetComponent<script_childBehaviour>();
-                if (child)
-                    if (child.asthmatic) Debug.Log("He is asthmatic");
-                Debug.Log("You hit child");*/
-                //Destroy(hit.transform.gameObject);
             }
         }
     }
@@ -254,6 +253,21 @@ public class script_characterController : MonoBehaviour
             }
         }
         
+    }
+
+    void outlineHandler()
+    {
+        if(lastMaterial) lastMaterial.SetFloat("Vector1_ADB1664", 0f);
+        RaycastHit hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, rayDistance, layerMask))
+        {
+            if (!hit.transform.GetComponent<script_childBehaviour>().checkedMask)
+            {
+                actualMaterial = hit.transform.GetComponentInChildren<Renderer>().material;
+                actualMaterial.SetFloat("Vector1_ADB1664", 1f);
+            }
+        }
+        if (actualMaterial) lastMaterial = actualMaterial;
     }
 
     IEnumerator stopRunning()
