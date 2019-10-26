@@ -7,14 +7,22 @@ public class script_onShowFaceEnd : StateMachineBehaviour
     [SerializeField] childState nextState;
     script_childBehaviour cb;
     Rigidbody rb;
+    script_maskController mc;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
         cb = anim.GetComponentInParent<script_childBehaviour>();
+
         rb = anim.GetComponentInParent<Rigidbody>();
 
+        mc = anim.GetComponentInChildren<script_maskController>();
+        mc.free();
+
         rb.isKinematic = false;
+
+        bool cond = cb.asthmatic;
+        if (cond) nextState = childState.idle;
 
         switch (nextState)
         {
@@ -43,6 +51,14 @@ public class script_onShowFaceEnd : StateMachineBehaviour
     override public void OnStateExit(Animator anim, AnimatorStateInfo stateInfo, int layerIndex)
     {
         //cb = anim.GetComponent<script_childBehaviour>();
+        
+        bool cond = cb.asthmatic;
+        if (cond)
+        {
+            cb.saved = true;
+            nextState = childState.idle;
+            script_gameController.winGame();
+        }
         cb.state = nextState;
     }
 

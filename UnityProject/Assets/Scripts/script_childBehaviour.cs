@@ -18,9 +18,11 @@ public class script_childBehaviour : MonoBehaviour
     Rigidbody rb;
     public childState state = childState.idle;
     [Header("PROPERTIES")]
-    public bool asthmatic = false;
+    [SerializeField] Transform targetForCam;
     [SerializeField] float lifeTime = 2f;
     [SerializeField] float idlePCT = 0.3f;
+    [HideInInspector] public bool asthmatic = false;
+    [HideInInspector] public bool saved = false;
 
     [Header("MOVEMENT")]
     [SerializeField] float speedMultiplier = 30f;
@@ -78,6 +80,11 @@ public class script_childBehaviour : MonoBehaviour
             chooseRandomDir();
 
             if (chaosCollider) chaosCollider.enabled = false;
+
+
+            
+
+
         }
     }
 
@@ -219,7 +226,7 @@ public class script_childBehaviour : MonoBehaviour
         transform.RotateAround(transform.position, Vector3.up, angleToRot * Time.fixedDeltaTime / positionCheckTime);
 
         if (time > positionCheckTime) changeState(childState.showFace);
-        //Debug.Log("checking mask");
+        //Debug.Log("checking .");
     }
 
     
@@ -263,8 +270,16 @@ public class script_childBehaviour : MonoBehaviour
     IEnumerator dieCountDown()
     {
         yield return new WaitForSeconds(lifeTime);
-        changeState(childState.die);
-        Debug.Log("dead");
+        if (!saved)
+        {
+            script_gameController.character.GetComponent<script_characterController>().changeState(charState.block);
+            script_mainCameraController mcc = script_gameController.character.GetComponentInChildren<script_mainCameraController>();
+            mcc.targetTransform = targetForCam;
+            mcc.changeState(camState.transition);
+            changeState(childState.die);
+            Debug.Log("dead");
+        }
+        
     }
 
     IEnumerator stopRunning()
@@ -302,7 +317,7 @@ public class script_childBehaviour : MonoBehaviour
         } else if ((state == childState.idle || state == childState.walk) && other.gameObject.layer == chaosLayer)
         {
 
-            Debug.Log("chaos activated");
+            //Debug.Log("chaos activated");
             changeState(childState.run);
             
         }

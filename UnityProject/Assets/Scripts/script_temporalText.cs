@@ -13,7 +13,7 @@ public class script_temporalText : MonoBehaviour
         text = GetComponent<Text>();
         text.enabled = false;
 
-        setActiveForXSeconds(5f, "xd");
+        //setActiveForXSeconds(5f, "xd");
     }
 
     public void setActiveForXSeconds(float x, string info)

@@ -10,7 +10,19 @@ public class script_childGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnManyKids(10);
+
+        script_maskController[] masks = generatedObject.GetComponentsInChildren<script_maskController>();
+        int num1 = (int)Mathf.Floor(Random.Range(0, 3));
+        int num2 = (int)Mathf.Floor(Random.Range(0, 3));
+        while (num2 == num1) num2 = (int)Mathf.Floor(Random.Range(0, 3));
+        Debug.Log(num1 + ", " + num2);
+        masks[num1].gameObject.SetActive(false);
+        masks[num2].gameObject.SetActive(false);
+
+
+        spawnManyKids(40);
+
+
     }
 
 
