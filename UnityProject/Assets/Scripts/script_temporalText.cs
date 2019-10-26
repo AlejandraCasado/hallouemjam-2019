@@ -6,12 +6,24 @@ using UnityEngine.UI;
 public class script_temporalText : MonoBehaviour
 {
     float time;
-    Text
+    Text text;
 
-    //public void setActiveForXSeconds(float x)
-    //{
-    //    time = x;
-    //}
+    private void Start()
+    {
+        text = GetComponent<Text>();
+        text.enabled = false;
+    }
 
-    //IEnumerator end
+    public void setActiveForXSeconds(float x, string info)
+    {
+        text.enabled = true;
+        time = x;
+        text.text = info;
+    }
+
+    IEnumerator endVisibility()
+    {
+        yield return new WaitForSeconds(time);
+        text.enabled = false;
+    }
 }
