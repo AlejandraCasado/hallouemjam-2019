@@ -10,7 +10,7 @@ public class script_gameController : MonoBehaviour
     void Awake()
     {
         character = GameObject.FindGameObjectWithTag("character");
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

@@ -48,7 +48,9 @@ public class script_childBehaviour : MonoBehaviour
     [Header("Chaos")]
     [SerializeField] float chaosTime = 3f;
     [SerializeField] SphereCollider chaosCollider;
+    [SerializeField] float chaosChance = 0.5f;
     int chaosLayer;
+    
    
 
     // Start is called before the first frame update
@@ -292,11 +294,17 @@ public class script_childBehaviour : MonoBehaviour
     {
         if((state == childState.walk || state == childState.run) && other.gameObject.layer == tayLayer)
         {
-            changeState(childState.idle);
+
+            if (Random.Range(0f, 1f) < chaosChance && !asthmatic)
+            {
+                changeState(childState.idle);
+            }
         } else if ((state == childState.idle || state == childState.walk) && other.gameObject.layer == chaosLayer)
         {
+
             Debug.Log("chaos activated");
             changeState(childState.run);
+            
         }
     }
 }
