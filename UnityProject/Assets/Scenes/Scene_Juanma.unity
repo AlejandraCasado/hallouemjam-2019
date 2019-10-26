@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04487552b3a34c94fb2231b6ae4bb039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MusicClip: {fileID: 8300000, guid: 8e8bd9b22fac97944a2f406833e7450e, type: 3}
+  MusicClip: {fileID: 8300000, guid: 530b1f75e2e50e84bab042da6420bc2a, type: 3}
   MusicSource: {fileID: 1551086256}
 --- !u!82 &1551086256
 AudioSource:
@@ -542,7 +542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551086254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4920988, y: 0.415662, z: 1.0015483}
+  m_LocalPosition: {x: 0.4920988, y: 0.415662, z: 5.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
