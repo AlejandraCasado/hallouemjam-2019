@@ -13,7 +13,7 @@ public class script_audioScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MusicSource.clip = MusicClip; //Asociamos (o cargamos) nuestro sonido / música
+        //MusicSource.clip = MusicClip; //Asociamos (o cargamos) nuestro sonido / música
     }
 
     public void startWorking()
@@ -29,6 +29,7 @@ public class script_audioScript : MonoBehaviour
 
     public void  playSound()
     {
+        MusicSource.clip = MusicClip; //Asociamos (o cargamos) nuestro sonido / música
         MusicSource.Play();
     }
 

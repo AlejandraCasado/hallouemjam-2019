@@ -18,6 +18,7 @@ public class script_characterController : MonoBehaviour
 
     Camera cam;
     Rigidbody rb;
+    script_audioScript audioScr;
 
     //input
     float inp_mouseX;
@@ -56,6 +57,7 @@ public class script_characterController : MonoBehaviour
     //FUNCTIONS
     void Start()
     {
+        audioScr = GetComponent<script_audioScript>();
         layerMask = LayerMask.GetMask("child");
         cam = GetComponentInChildren<Camera>();
         rb = GetComponent<Rigidbody>();
@@ -91,7 +93,7 @@ public class script_characterController : MonoBehaviour
         //Debug.Log("mouseX = " + inp_mouseX + ", mouseY = " + inp_mouseY + ", moveX = " + inp_move.x + ", moveZ = " + inp_move.z);
     }
 
-    void changeState(charState s)
+    public void changeState(charState s)
     {
             state = s;
     }
@@ -247,9 +249,10 @@ public class script_characterController : MonoBehaviour
         {
             if (inp_taylor && !colTay.enabled)
             {
+                audioScr.playSound();
                 colTay.enabled = true;
                 StartCoroutine("stopRunning");
-                Debug.Log("throwTay");
+                //Debug.Log("throwTay");
             }
         }
         
