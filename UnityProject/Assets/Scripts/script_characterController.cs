@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum charState { free, block, checkMask };
+
 public class script_characterController : MonoBehaviour
 {
     [Header("Move")]
@@ -24,6 +26,22 @@ public class script_characterController : MonoBehaviour
 
     int layerMask;
 
+    charState state = charState.free;
+
+    //CHILD CHECKED
+    [Header("CHILD CHECK")]
+    public float pointAtChildTime = 0.5f;
+    //bool pointingAtChild = false;
+    Transform childPursued;
+    float time = 0f;
+    Vector3 originalPos;
+    Vector3 targetPos;
+    [SerializeField] float childDistance = 1f;
+    [SerializeField] float targetCamAngle = 5f;
+    float anglesToRotateCam;
+    float anglesToRotateChar;
+    float lastTime = 0f;
+
     void Start()
     {
         layerMask = LayerMask.GetMask("child");
@@ -34,15 +52,66 @@ public class script_characterController : MonoBehaviour
     void Update()
     {
         inputCheck();
-        
     }
 
     private void FixedUpdate()
     {
+        behave();
+    }
+
+    void changeState(charState s)
+    {
+            state = s;
+    }
+
+    void behave()
+    {
+        switch (state)
+        {
+            /*case charState.idle:
+                behaveIdle();
+                break;*/
+
+            case charState.free:
+                behaveFree();
+                break;
+
+            /*case charState.block:
+
+                break;*/
+            case charState.checkMask:
+                behaveCheckMask();
+                break;
+        }
+    }
+
+    void behaveFree()
+    {
         moveCharacter();
         rotateCam();
         check();
-        //check();
+    }
+
+    void behaveCheckMask()
+    {
+        lastTime = time;
+        time += Time.fixedDeltaTime;
+        rb.velocity = new Vector3(0f, 0f, 0f);
+        float step = script_staticFuncs.smooth0to1(time / pointAtChildTime);
+
+        //POSITION
+        Vector3 vec = targetPos - originalPos;
+        transform.position = originalPos + step * vec;
+
+        //CAM
+        cam.transform.RotateAround(cam.transform.position, -cam.transform.right, anglesToRotateCam * Time.fixedDeltaTime / pointAtChildTime);
+
+
+        //FORWARD
+        transform.RotateAround(transform.position, Vector3.up, anglesToRotateChar * Time.fixedDeltaTime / pointAtChildTime);
+
+        
+        if (time > pointAtChildTime) endCheckingKid();
     }
 
     void inputCheck()
@@ -107,19 +176,61 @@ public class script_characterController : MonoBehaviour
     void check()
     {
         Debug.DrawLine(cam.transform.position, cam.transform.position + cam.transform.forward.normalized * rayDistance, Color.red);
-        if (inp_checkChild)
+        if (inp_checkChild && Mathf.Abs(rb.velocity.y) < 0.05f)
         {
             inp_checkChild = false;
             RaycastHit hit;
             if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, rayDistance, layerMask))
             {
-                script_childBehaviour child = hit.transform.GetComponent<script_childBehaviour>();
+                startCheckingKid(hit.transform);
+                /*script_childBehaviour child = hit.transform.GetComponent<script_childBehaviour>();
                 if (child)
                     if (child.asthmatic) Debug.Log("He is asthmatic");
-                Debug.Log("You hit child");
+                Debug.Log("You hit child");*/
                 //Destroy(hit.transform.gameObject);
             }
-            
         }
     }
+
+    void startCheckingKid(Transform c)
+    {
+
+        changeState(charState.checkMask);
+        childPursued = c;
+        childPursued.GetComponent<script_childBehaviour>().changeState(childState.checkMask);
+        time = 0f;
+        lastTime = 0f;
+        //originalForwardCam = cam.transform.forward;
+
+        //CAM
+
+        float aux = Vector3.SignedAngle(transform.forward, cam.transform.forward, -transform.right);
+
+        anglesToRotateCam = targetCamAngle - aux;
+        //Debug.Log("aux = " + aux + ", angle = " + anglesToRotateCam);
+
+
+        //FORWARD
+        Vector3 from = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+        Vector3 to = Vector3.ProjectOnPlane(childPursued.position - transform.position, Vector3.up).normalized;
+        aux = Vector3.SignedAngle(from, to, Vector3.up);
+        anglesToRotateChar = aux;
+        Debug.Log(aux);
+
+
+        //POSITION
+        originalPos = transform.position;
+        Vector3 childPosXZ = new Vector3(childPursued.position.x, transform.position.y, childPursued.position.z);
+        targetPos = childPosXZ + (transform.position - childPosXZ).normalized * childDistance;
+    }
+
+    void endCheckingKid()
+    {
+        changeState(charState.free);
+        //pointingAtChild
+    }
+
+    //PUBLIC
+    //public void blockChar() { changeState(charState.block); }
+    //public void setFree() { changeState(charState.free); }
 }

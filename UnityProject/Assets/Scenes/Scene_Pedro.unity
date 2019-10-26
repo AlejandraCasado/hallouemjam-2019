@@ -879,5 +879,10 @@ PrefabInstance:
       propertyPath: rayDistance
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8225822656702651769, guid: 6a65a8a6208907c44b20d3dae4796b23,
+        type: 3}
+      propertyPath: childDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a65a8a6208907c44b20d3dae4796b23, type: 3}

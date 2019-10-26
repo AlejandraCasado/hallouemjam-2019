@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum charState {idle, walk, run, die, checkMask};
+public enum childState {idle, walk, run, die, checkMask};
 
 public class script_childBehaviour : MonoBehaviour
 {
@@ -13,7 +13,7 @@ public class script_childBehaviour : MonoBehaviour
     const string trigger_checkMask = "checkMask";
     Animator anim;
     Rigidbody rb;
-    charState state = charState.idle;
+    childState state = childState.walk;
     [Header("PROPERTIES")]
     public bool asthmatic = false;
     [SerializeField] float lifeTime = 2f;
@@ -24,9 +24,11 @@ public class script_childBehaviour : MonoBehaviour
     [SerializeField] float pctMaxSpeedWalk = 0.5f;
 
     [Header("CHANGE DIR")]
-    Vector3 direction = Vector3.zero;
+    [SerializeField] float pointToDirForce = 3f;
     [SerializeField] float minTimeToChangeDir = 0f;
     [SerializeField] float rangeTimeToChangeDir = 1f;
+    Vector3 direction = Vector3.zero;
+    
 
 
     // Start is called before the first frame update
@@ -45,10 +47,10 @@ public class script_childBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I)) changeState(charState.idle);
-        if (Input.GetKeyDown(KeyCode.O)) changeState(charState.walk);
-        if (Input.GetKeyDown(KeyCode.P)) changeState(charState.run);
-        if (Input.GetKeyDown(KeyCode.L)) changeState(charState.checkMask);
+        //if (Input.GetKeyDown(KeyCode.I)) changeState(childState.idle);
+        //if (Input.GetKeyDown(KeyCode.O)) changeState(childState.walk);
+        //if (Input.GetKeyDown(KeyCode.P)) changeState(childState.run);
+        //if (Input.GetKeyDown(KeyCode.L)) changeState(childState.checkMask);
 
         //behave();
 
@@ -62,30 +64,30 @@ public class script_childBehaviour : MonoBehaviour
     private void LateUpdate()
     {
         clampSpeed();
-        if(state != charState.idle && state != charState.die) transform.LookAt(transform.position + direction.normalized, Vector3.up);
+        //if(state != childState.idle && state != childState.die) transform.LookAt(transform.position + direction.normalized, Vector3.up);
     }
 
-    void changeState(charState s) {
-        if(state != charState.die)
+    public void changeState(childState s) {
+        if(state != childState.die)
         {
             state = s;
             switch (s)
             {
-                case charState.idle:
+                case childState.idle:
                     anim.SetTrigger(trigger_idle);
                     break;
 
-                case charState.walk:
+                case childState.walk:
                     anim.SetTrigger(trigger_walk);
                     break;
 
-                case charState.run:
+                case childState.run:
                     anim.SetTrigger(trigger_run);
                     break;
-                case charState.die:
+                case childState.die:
                     anim.SetTrigger(trigger_die);
                     break;
-                case charState.checkMask:
+                case childState.checkMask:
                     anim.SetTrigger(trigger_checkMask);
                     break;
             }
@@ -97,39 +99,40 @@ public class script_childBehaviour : MonoBehaviour
     {
         switch (state)
         {
-            /*case charState.idle:
+            case childState.idle:
                 behaveIdle();
-                break;*/
+                break;
 
-            case charState.walk:
+            case childState.walk:
                 behaveWalk();
                 break;
 
-            case charState.run:
+            case childState.run:
                 behaveRun();
                 break;
-            case charState.checkMask:
+            case childState.checkMask:
                 behaveCheckMask();
                 break;
         }
     }
 
-    /*void behaveIdle()
+    void behaveIdle()
     {
-        //Debug.Log("idling");
-
-    }*/
+        pointToDir();
+    }
 
     void behaveWalk()
     {
         //Debug.Log("walking");
         rb.AddForce(direction * Time.fixedDeltaTime * speedMultiplier);
+        pointToDir();
     }
 
     void behaveRun()
     {
         //Debug.Log("running");
         rb.AddForce(direction * Time.fixedDeltaTime * speedMultiplier);
+        pointToDir();
     }
 
     /*void behaveDie()
@@ -153,7 +156,7 @@ public class script_childBehaviour : MonoBehaviour
     void clampSpeed()
     {
         Vector3 vel = Vector3.ProjectOnPlane(rb.velocity, Vector3.up);
-        float max = state == charState.walk ? max = maxSpeed * pctMaxSpeedWalk : maxSpeed;
+        float max = state == childState.walk ? max = maxSpeed * pctMaxSpeedWalk : maxSpeed;
         vel = vel.magnitude > max ? vel.normalized * max : vel;
 
         rb.velocity = new Vector3(vel.x, rb.velocity.y, vel.z);
@@ -169,8 +172,17 @@ public class script_childBehaviour : MonoBehaviour
     IEnumerator dieCountDown()
     {
         yield return new WaitForSeconds(lifeTime);
-        changeState(charState.die);
+        changeState(childState.die);
         Debug.Log("dead");
+    }
+
+    void pointToDir()
+    {
+        float angle = Vector3.SignedAngle(transform.forward, (transform.position + direction).normalized, Vector3.up);
+        Debug.Log(angle);
+        if (Mathf.Abs(angle) < 0.5f) transform.LookAt(transform.position + direction);
+        else transform.RotateAround(transform.position, Vector3.up, angle * Time.fixedDeltaTime * pointToDirForce);
+
     }
 
 }
