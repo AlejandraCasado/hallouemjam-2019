@@ -1,0 +1,191 @@
+animVersion 1.1;
+mayaVersion 2019;
+timeUnit ntsc;
+linearUnit cm;
+angularUnit deg;
+startTime 1;
+endTime 20;
+anim translate.translateX translateX |joint1|joint2 0 0 0;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 0.24562306 auto auto 1 0 0;
+    5 1.2037247 auto auto 1 0 0;
+    8 -0.96562174 auto auto 1 0 0;
+    11 0.66415931 auto auto 1 0 0;
+    14 -0.22678456 auto auto 1 0 0;
+    16 0.23591902 auto auto 1 0 0;
+    18 0.092558694 auto auto 1 0 0;
+    20 0.16445904 auto auto 1 0 0;
+  }
+}
+anim translate.translateY translateY |joint1|joint2 0 0 1;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 0.7331562 auto auto 1 0 0;
+    5 0.7331562 auto auto 1 0 0;
+    8 0.7331562 auto auto 1 0 0;
+    11 0.7331562 auto auto 1 0 0;
+    14 0.7331562 auto auto 1 0 0;
+    16 0.7331562 auto auto 1 0 0;
+    18 0.7331562 auto auto 1 0 0;
+    20 0.7331562 auto auto 1 0 0;
+  }
+}
+anim translate.translateZ translateZ |joint1|joint2 0 0 2;
+animData {
+  input time;
+  output linear;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 0.045716738 auto auto 1 0 0;
+    5 -0.76466922 auto auto 1 0 0;
+    8 1.0702174 auto auto 1 0 0;
+    11 -0.30829151 auto auto 1 0 0;
+    14 0.44529072 auto auto 1 0 0;
+    16 0.053924656 auto auto 1 0 0;
+    18 0.17518235 auto auto 1 0 0;
+    20 0.11436726 auto auto 1 0 0;
+  }
+}
+anim visibility visibility |joint1|joint2 0 0 3;
+animData {
+  input time;
+  output unitless;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 1 spline step 1 0 0;
+    5 1 spline step 1 0 0;
+    8 1 spline step 1 0 0;
+    11 1 spline step 1 0 0;
+    14 1 spline step 1 0 0;
+    16 1 spline step 1 0 0;
+    18 1 spline step 1 0 0;
+    20 1 spline step 1 0 0;
+  }
+}
+anim rotate.rotateX rotateX |joint1|joint2 0 0 4;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 0 auto auto 1 0 0;
+    5 0 auto auto 1 0 0;
+    8 0 auto auto 1 0 0;
+    11 0 auto auto 1 0 0;
+    14 0 auto auto 1 0 0;
+    16 0 auto auto 1 0 0;
+    18 0 auto auto 1 0 0;
+    20 0 auto auto 1 0 0;
+  }
+}
+anim rotate.rotateY rotateY |joint1|joint2 0 0 5;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 0 auto auto 1 0 0;
+    5 0 auto auto 1 0 0;
+    8 0 auto auto 1 0 0;
+    11 0 auto auto 1 0 0;
+    14 0 auto auto 1 0 0;
+    16 0 auto auto 1 0 0;
+    18 0 auto auto 1 0 0;
+    20 0 auto auto 1 0 0;
+  }
+}
+anim rotate.rotateZ rotateZ |joint1|joint2 0 0 6;
+animData {
+  input time;
+  output angular;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 0 auto auto 1 0 0;
+    5 0 auto auto 1 0 0;
+    8 0 auto auto 1 0 0;
+    11 0 auto auto 1 0 0;
+    14 0 auto auto 1 0 0;
+    16 0 auto auto 1 0 0;
+    18 0 auto auto 1 0 0;
+    20 0 auto auto 1 0 0;
+  }
+}
+anim scale.scaleX scaleX |joint1|joint2 0 0 7;
+animData {
+  input time;
+  output unitless;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 1 auto auto 1 0 0;
+    5 1 auto auto 1 0 0;
+    8 1 auto auto 1 0 0;
+    11 1 auto auto 1 0 0;
+    14 1 auto auto 1 0 0;
+    16 1 auto auto 1 0 0;
+    18 1 auto auto 1 0 0;
+    20 1 auto auto 1 0 0;
+  }
+}
+anim scale.scaleY scaleY |joint1|joint2 0 0 8;
+animData {
+  input time;
+  output unitless;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 1 auto auto 1 0 0;
+    5 1 auto auto 1 0 0;
+    8 1 auto auto 1 0 0;
+    11 1 auto auto 1 0 0;
+    14 1 auto auto 1 0 0;
+    16 1 auto auto 1 0 0;
+    18 1 auto auto 1 0 0;
+    20 1 auto auto 1 0 0;
+  }
+}
+anim scale.scaleZ scaleZ |joint1|joint2 0 0 9;
+animData {
+  input time;
+  output unitless;
+  weighted 0;
+  preInfinity constant;
+  postInfinity constant;
+  keys {
+    1 1 auto auto 1 0 0;
+    5 1 auto auto 1 0 0;
+    8 1 auto auto 1 0 0;
+    11 1 auto auto 1 0 0;
+    14 1 auto auto 1 0 0;
+    16 1 auto auto 1 0 0;
+    18 1 auto auto 1 0 0;
+    20 1 auto auto 1 0 0;
+  }
+}
+anim |joint1 0 1 0;
+anim |pCube1 0 2 0;
+anim |pCube1|pCubeShape1 1 0 0;
+anim |pCube1|pCubeShape1Orig 1 0 0;
