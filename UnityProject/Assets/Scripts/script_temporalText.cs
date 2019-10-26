@@ -12,6 +12,8 @@ public class script_temporalText : MonoBehaviour
     {
         text = GetComponent<Text>();
         text.enabled = false;
+
+        setActiveForXSeconds(5f, "xd");
     }
 
     public void setActiveForXSeconds(float x, string info)
@@ -19,6 +21,7 @@ public class script_temporalText : MonoBehaviour
         text.enabled = true;
         time = x;
         text.text = info;
+        StartCoroutine("endVisibility");
     }
 
     IEnumerator endVisibility()
