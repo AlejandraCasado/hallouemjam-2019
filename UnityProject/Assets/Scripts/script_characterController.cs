@@ -79,7 +79,7 @@ public class script_characterController : MonoBehaviour
         Vector3 to = cam.transform.forward;
         
         float actualAngleY = Vector3.SignedAngle(from, to, -transform.right.normalized);
-        Debug.Log("actual cam angle = " + actualAngleY);
+        //Debug.Log("actual cam angle = " + actualAngleY);
         
         if(actualAngleY > maxAngle / 2f)
         {
