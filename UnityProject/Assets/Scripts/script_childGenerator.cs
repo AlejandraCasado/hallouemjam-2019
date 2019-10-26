@@ -5,11 +5,12 @@ using UnityEngine;
 public class script_childGenerator : MonoBehaviour
 {
     [SerializeField] GameObject generatedObject;
+    [SerializeField] float pctWalking = 0.7f;
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnManyKids(1);
+        spawnManyKids(100);
     }
 
 
@@ -19,10 +20,25 @@ public class script_childGenerator : MonoBehaviour
         {
             
             GameObject obj = spawnKid();
-            if(i == 0)
+
+            script_childBehaviour behaviour = obj.GetComponent<script_childBehaviour>();
+            behaviour.init();
+            if (i == 0)
             {
-                obj.GetComponent<script_childBehaviour>().setAsthmatic();
+                behaviour.setAsthmatic();
+                obj.GetComponent<script_audioScript>().startWorking();
             }
+            else
+            {
+                script_audioScript a = obj.GetComponent<script_audioScript>();
+                AudioSource s = obj.GetComponent<AudioSource>();
+                if (a) Destroy(a);
+                if (s) Destroy(s);
+
+            }
+
+            if (Random.Range(0f, 1f) < pctWalking) behaviour.changeState(childState.walk);
+
         }
         Destroy(generatedObject);
     }

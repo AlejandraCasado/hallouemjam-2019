@@ -19,34 +19,43 @@ public class script_characterController : MonoBehaviour
     Camera cam;
     Rigidbody rb;
 
+    //input
     float inp_mouseX;
     float inp_mouseY;
     Vector3 inp_move = Vector3.zero;
     bool inp_checkChild;
+    bool inp_taylor;
 
     int layerMask;
-
     charState state = charState.free;
 
-    //CHILD CHECKED
     [Header("CHILD CHECK")]
-    public float pointAtChildTime = 0.5f;
-    //bool pointingAtChild = false;
-    Transform childPursued;
-    float time = 0f;
-    Vector3 originalPos;
-    Vector3 targetPos;
     [SerializeField] float childDistance = 1f;
     [SerializeField] float targetCamAngle = 5f;
+    public float pointAtChildTime = 0.5f;
+
+    Transform childPursued;
+    float time = 0f;
+
+    Vector3 originalPos;
+    Vector3 targetPos;
     float anglesToRotateCam;
     float anglesToRotateChar;
     float lastTime = 0f;
 
+    //TAYLOR
+    [Header("Taylor")]
+    [SerializeField] CapsuleCollider colTay;
+    [SerializeField] float taylorTime = 1f;
+
+
+    //FUNCTIONS
     void Start()
     {
         layerMask = LayerMask.GetMask("child");
         cam = GetComponentInChildren<Camera>();
         rb = GetComponent<Rigidbody>();
+        if (colTay) colTay.enabled = false;
     }
 
     void Update()
@@ -57,6 +66,24 @@ public class script_characterController : MonoBehaviour
     private void FixedUpdate()
     {
         behave();
+    }
+
+    void inputCheck()
+    {
+        inp_mouseX = Input.GetAxis("Mouse X");
+        inp_mouseY = Input.GetAxis("Mouse Y");
+        inp_move.x = Input.GetAxis("Horizontal");
+        inp_move.z = Input.GetAxis("Vertical");
+
+
+        Vector3 right = Vector3.ProjectOnPlane(cam.transform.right, Vector3.up).normalized;
+        Vector3 forward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).normalized;
+        inp_move = inp_move.x * right + inp_move.z * forward;
+
+        inp_checkChild = Input.GetButtonDown("Check");
+        inp_taylor = Input.GetButtonDown("Taylor");
+
+        //Debug.Log("mouseX = " + inp_mouseX + ", mouseY = " + inp_mouseY + ", moveX = " + inp_move.x + ", moveZ = " + inp_move.z);
     }
 
     void changeState(charState s)
@@ -90,6 +117,7 @@ public class script_characterController : MonoBehaviour
         moveCharacter();
         rotateCam();
         check();
+        throwTaylor();
     }
 
     void behaveCheckMask()
@@ -112,23 +140,6 @@ public class script_characterController : MonoBehaviour
 
         
         if (time > pointAtChildTime) endCheckingKid();
-    }
-
-    void inputCheck()
-    {
-        inp_mouseX = Input.GetAxis("Mouse X");
-        inp_mouseY = Input.GetAxis("Mouse Y");
-        inp_move.x = Input.GetAxis("Horizontal");
-        inp_move.z = Input.GetAxis("Vertical");
-
-
-        Vector3 right = Vector3.ProjectOnPlane(cam.transform.right, Vector3.up).normalized;
-        Vector3 forward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).normalized;
-        inp_move = inp_move.x * right + inp_move.z * forward;
-
-        inp_checkChild = Input.GetButtonDown("Fire1");
-
-        //Debug.Log("mouseX = " + inp_mouseX + ", mouseY = " + inp_mouseY + ", moveX = " + inp_move.x + ", moveZ = " + inp_move.z);
     }
 
     void moveCharacter()
@@ -229,6 +240,26 @@ public class script_characterController : MonoBehaviour
     {
         changeState(charState.free);
         //pointingAtChild
+    }
+
+    void throwTaylor()
+    {
+        if (colTay)
+        {
+            if (inp_taylor && !colTay.enabled)
+            {
+                colTay.enabled = true;
+                StartCoroutine("stopRunning");
+                Debug.Log("throwTay");
+            }
+        }
+        
+    }
+
+    IEnumerator stopRunning()
+    {
+        yield return new WaitForSeconds(taylorTime);
+        if (colTay) colTay.enabled = false;
     }
 
     //PUBLIC

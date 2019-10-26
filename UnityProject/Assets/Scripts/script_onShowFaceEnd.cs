@@ -27,6 +27,7 @@ public class script_onShowFaceEnd : StateMachineBehaviour
                 break;
 
             case childState.run:
+                cb.startRunning(true);
                 anim.SetTrigger("run");
                 break;
         }

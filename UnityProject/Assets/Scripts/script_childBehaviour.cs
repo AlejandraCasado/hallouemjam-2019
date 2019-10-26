@@ -6,6 +6,8 @@ public enum childState {idle, walk, run, die, checkMask, showFace};
 
 public class script_childBehaviour : MonoBehaviour
 {
+    bool alreadyInit = false;
+
     const string trigger_idle = "idle";
     const string trigger_walk = "walk";
     const string trigger_run = "run";
@@ -18,11 +20,13 @@ public class script_childBehaviour : MonoBehaviour
     [Header("PROPERTIES")]
     public bool asthmatic = false;
     [SerializeField] float lifeTime = 2f;
+    [SerializeField] float idlePCT = 0.3f;
 
     [Header("MOVEMENT")]
     [SerializeField] float speedMultiplier = 30f;
     [SerializeField] float maxSpeed = 20f;
     [SerializeField] float pctMaxSpeedWalk = 0.5f;
+    [SerializeField] float runningTime = 5f;
 
     [Header("CHANGE DIR")]
     [SerializeField] float pointToDirForce = 3f;
@@ -37,20 +41,42 @@ public class script_childBehaviour : MonoBehaviour
     float positionCheckTime = 0f;
     float angleToRot = 0f;
 
+    //TAYLOR
+    int tayLayer;
+
+    //CHAOS
+    [Header("Chaos")]
+    [SerializeField] float chaosTime = 3f;
+    [SerializeField] SphereCollider chaosCollider;
+    int chaosLayer;
+   
 
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log("child generated");
-        anim = GetComponentInChildren<Animator>();
-        rb = GetComponent<Rigidbody>();
-        if(state != childState.idle) changeState(state);
-        StartCoroutine("changeDir");
+        init();
+    }
 
-        direction = Vector3.right;
+    public void init()
+    {
+        if (!alreadyInit)
+        {
+            alreadyInit = true;
+            tayLayer = LayerMask.NameToLayer("taylor");
+            chaosLayer = LayerMask.NameToLayer("chaos");
+            //Debug.Log("child generated");
+            anim = GetComponentInChildren<Animator>();
+            rb = GetComponent<Rigidbody>();
+            if (state != childState.idle) changeState(state);
+            StartCoroutine("changeDir");
 
-        positionCheckTime = script_gameController.character.GetComponent<script_characterController>().pointAtChildTime;
-        
+            direction = Vector3.right;
+
+            positionCheckTime = script_gameController.character.GetComponent<script_characterController>().pointAtChildTime;
+            chooseRandomDir();
+
+            if (chaosCollider) chaosCollider.enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -76,7 +102,7 @@ public class script_childBehaviour : MonoBehaviour
         //if(state != childState.idle && state != childState.die) transform.LookAt(transform.position + direction.normalized, Vector3.up);
     }
 
-    public void changeState(childState s) {
+    public void changeState(childState s, bool runType = false) {
         if(state != childState.die)
         {
             state = s;
@@ -93,6 +119,7 @@ public class script_childBehaviour : MonoBehaviour
                     break;
 
                 case childState.run:
+                    startRunning(runType);
                     rb.isKinematic = false;
                     anim.SetTrigger(trigger_run);
                     break;
@@ -141,6 +168,7 @@ public class script_childBehaviour : MonoBehaviour
 
     void behaveIdle()
     {
+        directionToCharacter();
         pointToDir();
     }
 
@@ -158,6 +186,24 @@ public class script_childBehaviour : MonoBehaviour
         pointToDir();
     }
 
+    public void startRunning(bool generator = false)
+    {
+        StartCoroutine("stopRunning");
+        directionToCharacter(true);
+
+        if(generator && chaosCollider)
+        {
+            chaosCollider.enabled = true;
+            StartCoroutine("stopChaos");
+        }
+    }
+
+    IEnumerator stopChaos()
+    {
+        yield return new WaitForSeconds(chaosTime);
+        chaosCollider.enabled = false;
+    }
+
     /*void behaveDie()
     {
 
@@ -171,7 +217,7 @@ public class script_childBehaviour : MonoBehaviour
         transform.RotateAround(transform.position, Vector3.up, angleToRot * Time.fixedDeltaTime / positionCheckTime);
 
         if (time > positionCheckTime) changeState(childState.showFace);
-        Debug.Log("checking mask");
+        //Debug.Log("checking mask");
     }
 
     
@@ -180,8 +226,20 @@ public class script_childBehaviour : MonoBehaviour
     {
         float time = minTimeToChangeDir + Random.Range(0, rangeTimeToChangeDir);
         yield return new WaitForSeconds(time);
-        direction = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
+        chooseRandomDir();
         StartCoroutine("changeDir");
+    }
+
+    void chooseRandomDir()
+    {
+        if(!(state == childState.idle))
+            direction = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
+    }
+
+    void directionToCharacter(bool not = false)
+    {
+        direction = Vector3.ProjectOnPlane(script_gameController.character.transform.position - transform.position, Vector3.up).normalized;
+        if (not) direction = -direction;
     }
 
     void clampSpeed()
@@ -207,13 +265,37 @@ public class script_childBehaviour : MonoBehaviour
         Debug.Log("dead");
     }
 
+    IEnumerator stopRunning()
+    {
+        yield return new WaitForSeconds(runningTime);
+        if (state == childState.run) randomIdleOrWalk();
+    }
+
     void pointToDir()
     {
         float angle = Vector3.SignedAngle(transform.forward, direction, Vector3.up);
-        Debug.Log(angle);
+        //Debug.Log(angle);
         //if (Mathf.Abs(angle) < 5f) transform.LookAt(transform.position + direction);
         //else transform.RotateAround(transform.position, Vector3.up, angle * Time.fixedDeltaTime * pointToDirForce);
         rb.AddTorque(new Vector3(0f, angle * Time.fixedDeltaTime * pointToDirForce, 0f));
     }
 
+
+    void randomIdleOrWalk()
+    {
+        float a = Random.Range(0f, 1f);
+        if (a > idlePCT) changeState(childState.walk);
+        else changeState(childState.idle);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if((state == childState.walk || state == childState.run) && other.gameObject.layer == tayLayer)
+        {
+            changeState(childState.idle);
+        } else if ((state == childState.idle || state == childState.walk) && other.gameObject.layer == chaosLayer)
+        {
+            changeState(childState.run);
+        }
+    }
 }

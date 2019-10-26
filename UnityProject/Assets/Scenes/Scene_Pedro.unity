@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generatedObject: {fileID: 1820399952}
+  pctWalking: 0.3
 --- !u!4 &341429418
 Transform:
   m_ObjectHideFlags: 0
@@ -362,6 +363,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 58.204002, y: -52.229004, z: -28.081001}
+--- !u!135 &1186659976 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 1186659976, guid: 85280f075b3317f44b6f55346ab4de16,
+    type: 3}
+  m_PrefabInstance: {fileID: 1250489436}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1250489436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -430,8 +437,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1820399953, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
+      propertyPath: chaosCollider
+      value: 
+      objectReference: {fileID: 1186659976}
+    - target: {fileID: 1820399953, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
       propertyPath: lifeTime
-      value: 30
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820399953, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
+      propertyPath: runningTime
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85280f075b3317f44b6f55346ab4de16, type: 3}
@@ -771,11 +786,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: character
       objectReference: {fileID: 0}
-    - target: {fileID: 8225822656702651773, guid: 6a65a8a6208907c44b20d3dae4796b23,
-        type: 3}
-      propertyPath: m_TagString
-      value: character
-      objectReference: {fileID: 0}
     - target: {fileID: 8225822656702651774, guid: 6a65a8a6208907c44b20d3dae4796b23,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -830,26 +840,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8225822656702651769, guid: 6a65a8a6208907c44b20d3dae4796b23,
-        type: 3}
-      propertyPath: rayDistance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8225822656702651769, guid: 6a65a8a6208907c44b20d3dae4796b23,
-        type: 3}
-      propertyPath: childDistance
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8225822656702651769, guid: 6a65a8a6208907c44b20d3dae4796b23,
-        type: 3}
-      propertyPath: targetCamAngle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8225822656702651769, guid: 6a65a8a6208907c44b20d3dae4796b23,
-        type: 3}
-      propertyPath: pointAtChildTime
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a65a8a6208907c44b20d3dae4796b23, type: 3}
