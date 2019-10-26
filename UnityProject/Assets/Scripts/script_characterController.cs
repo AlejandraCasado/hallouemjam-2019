@@ -11,6 +11,8 @@ public class script_characterController : MonoBehaviour
     [SerializeField] float rotateXSpeedMultiplier = 100f;
     [SerializeField] float rotateYSpeedMultiplier = 100f;
     [SerializeField] float maxAngle = 100;
+    [Header("CHECK CHILD")]
+    [SerializeField] float rayDistance = 1f;
 
     Camera cam;
     Rigidbody rb;
@@ -18,9 +20,13 @@ public class script_characterController : MonoBehaviour
     float inp_mouseX;
     float inp_mouseY;
     Vector3 inp_move = Vector3.zero;
+    bool inp_checkChild;
+
+    int layerMask;
 
     void Start()
     {
+        layerMask = LayerMask.GetMask("child");
         cam = GetComponentInChildren<Camera>();
         rb = GetComponent<Rigidbody>();
     }
@@ -28,12 +34,15 @@ public class script_characterController : MonoBehaviour
     void Update()
     {
         inputCheck();
+        
     }
 
     private void FixedUpdate()
     {
         moveCharacter();
         rotateCam();
+        check();
+        //check();
     }
 
     void inputCheck()
@@ -47,6 +56,8 @@ public class script_characterController : MonoBehaviour
         Vector3 right = Vector3.ProjectOnPlane(cam.transform.right, Vector3.up).normalized;
         Vector3 forward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).normalized;
         inp_move = inp_move.x * right + inp_move.z * forward;
+
+        inp_checkChild = Input.GetButtonDown("Fire1");
 
         //Debug.Log("mouseX = " + inp_mouseX + ", mouseY = " + inp_mouseY + ", moveX = " + inp_move.x + ", moveZ = " + inp_move.z);
     }
@@ -91,6 +102,24 @@ public class script_characterController : MonoBehaviour
             //Debug.Log("sa pasao por debajo");
             float aux = actualAngleY + (maxAngle / 2f);
             cam.transform.RotateAround(cam.transform.position, cam.transform.right, aux);
+        }
+    }
+    void check()
+    {
+        Debug.DrawLine(cam.transform.position, cam.transform.position + cam.transform.forward.normalized * rayDistance, Color.red);
+        if (inp_checkChild)
+        {
+            inp_checkChild = false;
+            RaycastHit hit;
+            if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, rayDistance, layerMask))
+            {
+                script_childBehaviour child = hit.transform.GetComponent<script_childBehaviour>();
+                if (child)
+                    if (child.asthmatic) Debug.Log("He is asthmatic");
+                Debug.Log("You hit child");
+                //Destroy(hit.transform.gameObject);
+            }
+            
         }
     }
 }

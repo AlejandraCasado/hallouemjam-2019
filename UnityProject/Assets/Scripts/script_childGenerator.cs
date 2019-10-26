@@ -9,16 +9,25 @@ public class script_childGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnManyKids(0);
+        spawnManyKids(5);
     }
 
 
     public void spawnManyKids(float number)
     {
-        for (int i = 0; i < number; i++) spawnKid();
+        for (int i = 0; i < number; i++)
+        {
+            
+            GameObject obj = spawnKid();
+            if(i == 0)
+            {
+                obj.GetComponent<script_childBehaviour>().setAsthmatic();
+            }
+        }
+        Destroy(generatedObject);
     }
 
-    void spawnKid()
+    GameObject spawnKid()
     {
         GameObject obj = Instantiate(generatedObject);
 
@@ -30,5 +39,6 @@ public class script_childGenerator : MonoBehaviour
         
 
         obj.transform.position = pos;
+        return obj;
     }
 }

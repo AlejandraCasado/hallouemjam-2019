@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-enum charState {idle, walk, run};
+enum charState {idle, walk, run, die, checkMask};
 
 public class script_childBehaviour : MonoBehaviour
 {
     const string trigger_idle = "idle";
     const string trigger_walk = "walk";
     const string trigger_run = "run";
+    const string trigger_die = "die";
+    const string trigger_checkMask = "checkMask";
     Animator anim;
     Rigidbody rb;
     charState state = charState.idle;
+    [Header("PROPERTIES")]
+    public bool asthmatic = false;
+    [SerializeField] float lifeTime = 2f;
 
     [Header("MOVEMENT")]
     [SerializeField] float speedMultiplier = 30f;
@@ -34,6 +39,7 @@ public class script_childBehaviour : MonoBehaviour
         StartCoroutine("changeDir");
 
         direction = Vector3.right;
+        
     }
 
     // Update is called once per frame
@@ -42,6 +48,7 @@ public class script_childBehaviour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I)) changeState(charState.idle);
         if (Input.GetKeyDown(KeyCode.O)) changeState(charState.walk);
         if (Input.GetKeyDown(KeyCode.P)) changeState(charState.run);
+        if (Input.GetKeyDown(KeyCode.L)) changeState(charState.checkMask);
 
         //behave();
 
@@ -55,35 +62,44 @@ public class script_childBehaviour : MonoBehaviour
     private void LateUpdate()
     {
         clampSpeed();
-        transform.LookAt(transform.position + Vector3.ProjectOnPlane(rb.velocity.normalized,Vector3.up), Vector3.up);
+        if(state != charState.idle && state != charState.die) transform.LookAt(transform.position + direction.normalized, Vector3.up);
     }
 
     void changeState(charState s) {
-        state = s;
-        switch (s)
+        if(state != charState.die)
         {
-            case charState.idle:
-                anim.SetTrigger(trigger_idle);
-                break;
+            state = s;
+            switch (s)
+            {
+                case charState.idle:
+                    anim.SetTrigger(trigger_idle);
+                    break;
 
-            case charState.walk:
-                anim.SetTrigger(trigger_walk);
-                break;
+                case charState.walk:
+                    anim.SetTrigger(trigger_walk);
+                    break;
 
-            case charState.run:
-                anim.SetTrigger(trigger_run);
-                break;
+                case charState.run:
+                    anim.SetTrigger(trigger_run);
+                    break;
+                case charState.die:
+                    anim.SetTrigger(trigger_die);
+                    break;
+                case charState.checkMask:
+                    anim.SetTrigger(trigger_checkMask);
+                    break;
+            }
+            //Debug.Log(s);
         }
-        //Debug.Log(s);
     }
 
     void behave()
     {
         switch (state)
         {
-            case charState.idle:
+            /*case charState.idle:
                 behaveIdle();
-                break;
+                break;*/
 
             case charState.walk:
                 behaveWalk();
@@ -92,14 +108,17 @@ public class script_childBehaviour : MonoBehaviour
             case charState.run:
                 behaveRun();
                 break;
+            case charState.checkMask:
+                behaveCheckMask();
+                break;
         }
     }
 
-    void behaveIdle()
+    /*void behaveIdle()
     {
         //Debug.Log("idling");
 
-    }
+    }*/
 
     void behaveWalk()
     {
@@ -113,17 +132,21 @@ public class script_childBehaviour : MonoBehaviour
         rb.AddForce(direction * Time.fixedDeltaTime * speedMultiplier);
     }
 
+    /*void behaveDie()
+    {
+
+    }*/
+
+    void behaveCheckMask()
+    {
+        Debug.Log("character is at " + script_gameController.character.transform.position);
+    }
+
     IEnumerator changeDir()
     {
         float time = minTimeToChangeDir + Random.Range(0, rangeTimeToChangeDir);
-        //Debug.Log(time);
-        //Debug.Log("start changeDir");
         yield return new WaitForSeconds(time);
-        //Debug.Log("finished changed Dir");
-
         direction = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
-        Debug.Log("direction: " + direction);
-
         StartCoroutine("changeDir");
     }
 
@@ -134,6 +157,20 @@ public class script_childBehaviour : MonoBehaviour
         vel = vel.magnitude > max ? vel.normalized * max : vel;
 
         rb.velocity = new Vector3(vel.x, rb.velocity.y, vel.z);
+    }
+
+    public void setAsthmatic()
+    {
+        asthmatic = true;
+        if (asthmatic) transform.name = "child asthmatic";
+        StartCoroutine("dieCountDown");
+    }
+
+    IEnumerator dieCountDown()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        changeState(charState.die);
+        Debug.Log("dead");
     }
 
 }
