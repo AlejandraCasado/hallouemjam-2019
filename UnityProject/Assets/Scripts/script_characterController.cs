@@ -28,7 +28,7 @@ public class script_characterController : MonoBehaviour
     bool inp_taylor;
 
     int layerMask;
-    charState state = charState.free;
+    charState state = charState.block;
 
     [Header("CHILD CHECK")]
     [SerializeField] float childDistance = 1f;
@@ -52,6 +52,9 @@ public class script_characterController : MonoBehaviour
     //OUTLINE
     Material lastMaterial;
     Material actualMaterial;
+
+    //OUTPUT
+    [SerializeField] script_temporalText interactiveText;
 
 
     //FUNCTIONS
@@ -250,6 +253,22 @@ public class script_characterController : MonoBehaviour
             if (inp_taylor && !colTay.enabled)
             {
                 audioScr.playSound();
+                string[][] datas = new string[4][];
+                datas[0] = new string[2];
+                datas[1] = new string[2];
+                datas[2] = new string[2];
+                datas[3] = new string[2];
+
+                datas[0][0] = "Taylor!";
+                datas[0][1] = "How can this child be so absent-minded?";
+                datas[1][0] = "Taylor!";
+                datas[1][1] = "I can't believe how Taylor keeps playing around while coughing";
+                datas[2][0] = "Taylor!";
+                datas[2][1] = "If only Taylor listened to what I said";
+                datas[3][0] = "Taylor!";
+                datas[3][1] = "The audacity of this kid...";
+
+                interactiveText.showInfo(2f, datas[(int)Random.Range(0,4)]);
                 colTay.enabled = true;
                 StartCoroutine("stopRunning");
                 //Debug.Log("throwTay");

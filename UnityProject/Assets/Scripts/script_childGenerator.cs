@@ -20,7 +20,7 @@ public class script_childGenerator : MonoBehaviour
         masks[num2].gameObject.SetActive(false);
 
 
-        spawnManyKids(40);
+        /*spawnManyKids(40);*/
 
 
     }
