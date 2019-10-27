@@ -9,6 +9,7 @@ public class script_basicEventTriggerer : MonoBehaviour
 {
 
     [SerializeField] UnityEvent triggerEnter;
+    [SerializeField] UnityEvent triggerExit;
     [SerializeField] string tag;
 
     // Start is called before the first frame update
@@ -27,6 +28,12 @@ public class script_basicEventTriggerer : MonoBehaviour
     {
         if(other.tag == tag)
             triggerEnter.Invoke();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == tag)
+            triggerExit.Invoke();
     }
 
 }

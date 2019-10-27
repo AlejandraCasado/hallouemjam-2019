@@ -8,6 +8,8 @@ public class script_gameController : MonoBehaviour
     public static GameObject character;
     script_audioScript[] audioScripts;
 
+    script_controlSoundCinematic mainSoundController;
+
     static bool finished = false;
     static bool won = false;
 
@@ -21,7 +23,8 @@ public class script_gameController : MonoBehaviour
     void Awake()
     {
         count.enabled = false;
-        lifeTime = 300f;
+        lifeTime = 20f;
+        mainSoundController = GetComponent<script_controlSoundCinematic>();
         character = GameObject.FindGameObjectWithTag("character");
         Cursor.lockState = CursorLockMode.Locked;
         audioScripts = GetComponents<script_audioScript>();
@@ -36,7 +39,7 @@ public class script_gameController : MonoBehaviour
             finished = false;
             if (won) audioScripts[0].playSound();
             else audioScripts[1].playSound();
-
+            mainSoundController.stopSound();
         }
 
         if(count.enabled) counter();
@@ -59,11 +62,13 @@ public class script_gameController : MonoBehaviour
         Debug.Log("You won");
         finished = true;
         won = true;
+        character.GetComponent<script_characterController>().blockChar();
     }
 
     public static void loseGame()
     {
         Debug.Log("You lost");
+
         finished = true;
     }
 
