@@ -657,7 +657,7 @@ PrefabInstance:
     - target: {fileID: 9112453703296824724, guid: 7ee10f1e1d953094a9de7f187ced3869,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 400
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 9112453703296824724, guid: 7ee10f1e1d953094a9de7f187ced3869,
         type: 3}
@@ -667,8 +667,20 @@ PrefabInstance:
     - target: {fileID: 9112453703296824723, guid: 7ee10f1e1d953094a9de7f187ced3869,
         type: 3}
       propertyPath: m_Text
-      value: "CREDITS\n\nAlejandra Casado Ceballos\nPedro Casas Alonso\nDaniel Brenlla
-        G\xF3mez\nMariam Baradi del Alamo\nJuan Manuel Carretero \xC1vila"
+      value: 'CREDITS
+
+
+        Alejandra Casado Ceballos
+
+        Juan Manuel Carretero @juanmcasper5
+
+        Pedro Casas @PedroCasasM
+
+        Daniel Brenlla @brenlli.3d
+
+        @zu_uhr
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 9112453703296824723, guid: 7ee10f1e1d953094a9de7f187ced3869,
         type: 3}
@@ -739,6 +751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_BoolArgument
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112453703891059961, guid: 7ee10f1e1d953094a9de7f187ced3869,
+        type: 3}
+      propertyPath: m_Text
+      value: Asmattack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ee10f1e1d953094a9de7f187ced3869, type: 3}
