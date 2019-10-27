@@ -13,7 +13,7 @@ public class script_temporalText : MonoBehaviour
 
     bool showing = false;
 
-    private void Start()
+    private void Awake()
     {
         text = GetComponent<Text>();
         text.enabled = false;
