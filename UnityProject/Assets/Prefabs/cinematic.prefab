@@ -178,6 +178,50 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   tag: character
+--- !u!1 &1479762434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1479762436}
+  - component: {fileID: 1479762435}
+  m_Layer: 13
+  m_Name: childBarrierInDoors
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1479762436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479762434}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.45, y: 0, z: 12.71}
+  m_LocalScale: {x: 3.525, y: 2.7469, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2383927488118268490}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1479762435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479762434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1529972682
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,17 +326,6 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 341429417}
-        m_MethodName: spawnManyKids
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 30
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -526,6 +559,7 @@ Transform:
   - {fileID: 1529972683}
   - {fileID: 341429418}
   - {fileID: 590829548}
+  - {fileID: 1479762436}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -618,6 +652,28 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 341429417}
+        m_MethodName: spawnManyKids
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 30
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: startCountDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   triggerExit:
     m_PersistentCalls:
@@ -729,6 +785,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 306cd5f74f2bb4547be9c977b18b3303, type: 3}
+--- !u!1 &6764603682797430233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9004343130044064979, guid: 306cd5f74f2bb4547be9c977b18b3303,
+    type: 3}
+  m_PrefabInstance: {fileID: 2383927486606065930}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6764603683830604417 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9004343131091788683, guid: 306cd5f74f2bb4547be9c977b18b3303,
@@ -738,12 +800,6 @@ GameObject:
 --- !u!4 &6764603684096847165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9004343131379199031, guid: 306cd5f74f2bb4547be9c977b18b3303,
-    type: 3}
-  m_PrefabInstance: {fileID: 2383927486606065930}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6764603682797430233 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9004343130044064979, guid: 306cd5f74f2bb4547be9c977b18b3303,
     type: 3}
   m_PrefabInstance: {fileID: 2383927486606065930}
   m_PrefabAsset: {fileID: 0}
@@ -931,6 +987,27 @@ PrefabInstance:
       propertyPath: speed
       value: 680
       objectReference: {fileID: 0}
+    - target: {fileID: 1606808381894668953, guid: bb39909c85e155e42bfb977e151ef3cc,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1606808381894668955, guid: bb39909c85e155e42bfb977e151ef3cc,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: ea67c5c6102fe5b458aebdec6e50000e,
+        type: 2}
+    - target: {fileID: 238140169244742947, guid: bb39909c85e155e42bfb977e151ef3cc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: da6a80d1090c2ab479cfec9f2b21d087, type: 2}
+    - target: {fileID: 238140169244742947, guid: bb39909c85e155e42bfb977e151ef3cc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4374674ba31d0ef4ba510ede657b5601, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb39909c85e155e42bfb977e151ef3cc, type: 3}
 --- !u!4 &2383927486230589749 stripped

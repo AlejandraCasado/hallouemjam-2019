@@ -29,7 +29,7 @@ public class script_gameController : MonoBehaviour
     {
         finishText.enabled = false;
         count.enabled = false;
-        lifeTime = 5f;
+        lifeTime = 1f;
         mainSoundController = GetComponent<script_controlSoundCinematic>();
         character = GameObject.FindGameObjectWithTag("character");
         Cursor.lockState = CursorLockMode.Locked;
@@ -63,6 +63,7 @@ public class script_gameController : MonoBehaviour
             if (won) finishText.text = winMessage;
             else finishText.text = loseMessage;
 
+            StartCoroutine("endGame");
         }
 
         if(count.enabled) counter();
