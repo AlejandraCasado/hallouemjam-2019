@@ -35,6 +35,7 @@ public class script_gameController : MonoBehaviour
         mainSoundController = GetComponent<script_controlSoundCinematic>();
         character = GameObject.FindGameObjectWithTag("character");
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         audioScripts = GetComponents<script_audioScript>();
         won = false;
     }
@@ -77,7 +78,7 @@ public class script_gameController : MonoBehaviour
         currentTime += Time.deltaTime;
         currentTime = currentTime > lifeTime ? lifeTime : currentTime;
 
-        count.text = ((int)(lifeTime - currentTime)).ToString() + "s";
+        count.text = ("Taylor's life: " + (int)(lifeTime - currentTime)).ToString() + "s";
 
 
     }
