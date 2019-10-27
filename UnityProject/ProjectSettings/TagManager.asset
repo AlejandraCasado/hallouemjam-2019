@@ -6,6 +6,7 @@ TagManager:
   tags:
   - character
   - exit
+  - child
   layers:
   - Default
   - TransparentFX

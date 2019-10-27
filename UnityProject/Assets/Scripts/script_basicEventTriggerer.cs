@@ -8,7 +8,8 @@ using UnityEngine.Events;
 public class script_basicEventTriggerer : MonoBehaviour
 {
 
-    [SerializeField]UnityEvent triggerEnter;
+    [SerializeField] UnityEvent triggerEnter;
+    [SerializeField] string tag;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,8 @@ public class script_basicEventTriggerer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        triggerEnter.Invoke();
+        if(other.tag == tag)
+            triggerEnter.Invoke();
     }
 
 }

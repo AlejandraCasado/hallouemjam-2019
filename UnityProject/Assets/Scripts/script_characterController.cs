@@ -299,6 +299,6 @@ public class script_characterController : MonoBehaviour
     }
 
     //PUBLIC
-    //public void blockChar() { changeState(charState.block); }
-    //public void setFree() { changeState(charState.free); }
+    public void blockChar() { changeState(charState.block); }
+    public void setFree() { changeState(charState.free); }
 }
