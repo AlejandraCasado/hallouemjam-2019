@@ -135,6 +135,7 @@ MonoBehaviour:
   pointAtChildTime: 1
   colTay: {fileID: 1420787637}
   taylorTime: 3
+  interactiveText: {fileID: 0}
 --- !u!82 &1599361779
 AudioSource:
   m_ObjectHideFlags: 0

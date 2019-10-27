@@ -234,7 +234,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   targetForCam: {fileID: 1686591679}
-  lifeTime: 30
   idlePCT: 0.3
   asthmatic: 0
   saved: 0
@@ -245,6 +244,10 @@ MonoBehaviour:
   pointToDirForce: 30
   minTimeToChangeDir: 2
   rangeTimeToChangeDir: 3
+  outlineMatRef: {fileID: 5476793587736134425}
+  color0: {fileID: 2800000, guid: 7c2b5bc21aab1d54f9bf62394820f299, type: 3}
+  color1: {fileID: 2800000, guid: e303796c6182b5445b5f3890d13b9a51, type: 3}
+  color2: {fileID: 2800000, guid: 733bb157773953046af7fcea653ce7f9, type: 3}
   checkedMask: 0
   chaosTime: 3
   chaosCollider: {fileID: 1186659976}
@@ -619,11 +622,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Taylor_Run
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: c6e8d60d1e363f14d9d7e986fa90763d,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: c48263465a8bbb64bbf564c9e4b778ca, type: 2}
     - target: {fileID: -4216859302048453862, guid: c6e8d60d1e363f14d9d7e986fa90763d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -694,8 +692,29 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 21.879898
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: c6e8d60d1e363f14d9d7e986fa90763d,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c48263465a8bbb64bbf564c9e4b778ca, type: 2}
+    - target: {fileID: 1513926962955084371, guid: c6e8d60d1e363f14d9d7e986fa90763d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: da6a80d1090c2ab479cfec9f2b21d087, type: 2}
+    - target: {fileID: 1513926962955084371, guid: c6e8d60d1e363f14d9d7e986fa90763d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4374674ba31d0ef4ba510ede657b5601, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6e8d60d1e363f14d9d7e986fa90763d, type: 3}
+--- !u!137 &5476793587736134425 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1513926962955084371, guid: c6e8d60d1e363f14d9d7e986fa90763d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6414241105079214410}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7964475890561424585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000453017570065795, guid: c6e8d60d1e363f14d9d7e986fa90763d,

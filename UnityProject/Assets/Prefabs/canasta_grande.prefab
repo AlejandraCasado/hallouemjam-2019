@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2547763313187563959
 Transform:
@@ -48,7 +48,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4234824532424561671
 Transform:
@@ -135,6 +135,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: canasta (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: deb4e51d3eddb434abd297d42c8cf0d8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3975244630919933266, guid: deb4e51d3eddb434abd297d42c8cf0d8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -6860961830843091074, guid: deb4e51d3eddb434abd297d42c8cf0d8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8149821039361591234, guid: deb4e51d3eddb434abd297d42c8cf0d8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -3164220449637510858, guid: deb4e51d3eddb434abd297d42c8cf0d8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: deb4e51d3eddb434abd297d42c8cf0d8,
         type: 3}

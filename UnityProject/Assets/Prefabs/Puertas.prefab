@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7528908756896925384
 Transform:
@@ -43,6 +43,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 1_puerta
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 785008687e3e7e041b5170e0f942dba3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 785008687e3e7e041b5170e0f942dba3,
         type: 3}
@@ -128,6 +133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 1_puerta (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 785008687e3e7e041b5170e0f942dba3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 785008687e3e7e041b5170e0f942dba3,
         type: 3}

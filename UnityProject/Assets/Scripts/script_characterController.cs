@@ -283,9 +283,10 @@ public class script_characterController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, rayDistance, layerMask))
         {
-            if (!hit.transform.GetComponent<script_childBehaviour>().checkedMask)
+            script_childBehaviour behaviour = hit.transform.GetComponent<script_childBehaviour>();
+            if (!behaviour.checkedMask)
             {
-                actualMaterial = hit.transform.GetComponentInChildren<Renderer>().material;
+                actualMaterial = behaviour.outlineMatRef.materials[1];
                 actualMaterial.SetFloat("Vector1_ADB1664", 1f);
             }
         }

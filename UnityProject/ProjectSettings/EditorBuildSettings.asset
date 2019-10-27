@@ -6,60 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/01 - BakedGI/BakedGI.unity
-    guid: 64063f0df5bedc245b26f84a873a604f
+    path: Assets/Scenes/Menu.unity
+    guid: 6b6644e4f8924d34f911c34f4e022f82
   - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/01 - BakedGI/BakedGI_A.unity
-    guid: 2b502ceccf8285c48bd11b595f8ccc79
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/01 - BakedGI/BakedGI_B.unity
-    guid: 28f5b18b1ec894646a65b8fa112e5382
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/01 - BakedGI/BakedGI_C.unity
-    guid: 5cf7916c8d836dd48ac1b469d92a79cb
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/02 - RealtimeGI/RealtimeGI.unity
-    guid: 5041cb5caf3df024da9c3b308e7ea602
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/02 - RealtimeGI/RealtimeGI_A.unity
-    guid: b7a4376f5a866534fb99b9610b054c27
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/02 - RealtimeGI/RealtimeGI_B.unity
-    guid: 81fc6350549f9bd4ea32ad94aa15a3a4
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/02 - RealtimeGI/RealtimeGI_C.unity
-    guid: 4e083dbb15533e248a91c9251b366e64
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/00 - LightingData/LightingData_A.unity
-    guid: 9d671e95b554fb647a61f03468257ad3
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/00 - LightingData/LightingData_B.unity
-    guid: a21078a130f99e24db28caa8b63b196d
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/00 - LightingData/LightingData_C.unity
-    guid: d29bc78979626b842967bffaa7248e62
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/00 - LightingData/LightingData.unity
-    guid: 84f8c5b69ac0d4a4f854ef836fc52913
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/03 - ReflectionProbes/ReflectionProbes.unity
-    guid: ebc409cc557653a42bc5d2ffa96d3672
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/03 - ReflectionProbes/ReflectionProbes_A.unity
-    guid: fd5477c2e6cfead4488623141713d92f
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/03 - ReflectionProbes/ReflectionProbes_B.unity
-    guid: 20283b4b301c76240bce696f15078321
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/03 - ReflectionProbes/ReflectionProbes_C.unity
-    guid: d63c0afbe0f7eda408c51d30e8cb8e3e
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/04 - LightProbes/LightProbes.unity
-    guid: 016c1936be6fac040938d530dcb14aed
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/04 - LightProbes/LightProbes_A.unity
-    guid: 32bd32ca79627c84e8552cbd7ed48f77
-  - enabled: 1
-    path: Assets/AdditiveLoadingExamples/Scenes/04 - LightProbes/LightProbes_B.unity
-    guid: 2956c78b30e49504b8f4630e733cdc8c
+    path: Assets/Scenes/Game.unity
+    guid: 4a96362b1db6c4a45ad340b7c3343f0e
   m_configObjects: {}
