@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class script_gameController : MonoBehaviour
 {
@@ -10,13 +11,23 @@ public class script_gameController : MonoBehaviour
     static bool finished = false;
     static bool won = false;
 
+    float currentTime = 0f;
+    public static float lifeTime;
+
+    [SerializeField] Text count;
+   
+
     // Start is called before the first frame update
     void Awake()
     {
+        count.enabled = false;
+        lifeTime = 300f;
         character = GameObject.FindGameObjectWithTag("character");
         Cursor.lockState = CursorLockMode.Locked;
         audioScripts = GetComponents<script_audioScript>();
     }
+
+
 
     private void Update()
     {
@@ -27,7 +38,21 @@ public class script_gameController : MonoBehaviour
             else audioScripts[1].playSound();
 
         }
+
+        if(count.enabled) counter();
     }
+
+    void counter()
+    {
+        currentTime += Time.deltaTime;
+        currentTime = currentTime > lifeTime ? lifeTime : currentTime;
+
+        count.text = ((int)(lifeTime - currentTime)).ToString() + "s";
+
+
+    }
+
+
 
     public static void winGame()
     {
@@ -42,5 +67,9 @@ public class script_gameController : MonoBehaviour
         finished = true;
     }
 
+    public void startCountDown()
+    {
+        count.enabled = true;
+    }
 
 }
