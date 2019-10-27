@@ -7,7 +7,6 @@ public class script_controlSoundCinematic : MonoBehaviour
     [SerializeField] AudioSource mainSceneSound;
 
     [SerializeField] AudioClip next;
-    [SerializeField] AudioClip next2;
     [SerializeField] AudioClip main;
 
     float time = 0f;
@@ -31,13 +30,6 @@ public class script_controlSoundCinematic : MonoBehaviour
             mainSceneSound.clip = next;
             mainSceneSound.Play();
             time = mainSceneSound.clip.length;
-        }
-        yield return new WaitForSeconds(time);
-        if (!playMain)
-        {
-            mainSceneSound.clip = next2;
-            mainSceneSound.loop = true;
-            mainSceneSound.Play();
         }
     }
 
