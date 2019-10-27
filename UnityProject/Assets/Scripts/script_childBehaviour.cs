@@ -19,7 +19,7 @@ public class script_childBehaviour : MonoBehaviour
     public childState state = childState.idle;
     [Header("PROPERTIES")]
     [SerializeField] Transform targetForCam;
-    [SerializeField] float lifeTime = 2f;
+    /*[SerializeField] */float lifeTime/* = 2f*/;
     [SerializeField] float idlePCT = 0.3f;
     [HideInInspector] public bool asthmatic = false;
     [HideInInspector] public bool saved = false;
@@ -65,6 +65,7 @@ public class script_childBehaviour : MonoBehaviour
     {
         if (!alreadyInit)
         {
+            lifeTime = script_gameController.lifeTime;
             alreadyInit = true;
             tayLayer = LayerMask.NameToLayer("taylor");
             chaosLayer = LayerMask.NameToLayer("chaos");
@@ -80,11 +81,6 @@ public class script_childBehaviour : MonoBehaviour
             chooseRandomDir();
 
             if (chaosCollider) chaosCollider.enabled = false;
-
-
-            
-
-
         }
     }
 
