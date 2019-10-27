@@ -26,7 +26,7 @@ public class script_controlSoundCinematic : MonoBehaviour
     IEnumerator playnext()
     {
         yield return new WaitForSeconds(time);
-        if (playMain)
+        if (!playMain)
         {
             mainSceneSound.clip = next;
             mainSceneSound.Play();
@@ -47,6 +47,11 @@ public class script_controlSoundCinematic : MonoBehaviour
         mainSceneSound.clip = main;
         mainSceneSound.loop = true;
         mainSceneSound.Play();
+    }
+
+    public void stopSound()
+    {
+        mainSceneSound.Pause();
     }
 
 }

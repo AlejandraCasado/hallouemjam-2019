@@ -36,6 +36,12 @@ public class script_childBehaviour : MonoBehaviour
     [SerializeField] float rangeTimeToChangeDir = 1f;
     Vector3 direction = Vector3.zero;
 
+    [Header("TEXTURES")]
+    public Renderer outlineMatRef;
+    [SerializeField] Texture color0;
+    [SerializeField] Texture color1;
+    [SerializeField] Texture color2;
+
 
     //CHECKING
     [HideInInspector] public bool checkedMask = false;
@@ -59,6 +65,22 @@ public class script_childBehaviour : MonoBehaviour
     void Start()
     {
         init();
+        chooseTexture();
+    }
+
+    void chooseTexture()
+    {
+        Texture tex;
+        if (asthmatic) tex = color0;
+        else if (Random.Range(0f, 1f) < 0.5f) tex = color1;
+        else tex = color2;
+
+        useTexture(tex);
+    }
+
+    void useTexture(Texture tex)
+    {
+        outlineMatRef.materials[0].SetTexture("Texture2D_3E2EF9BD", tex);
     }
 
     public void init()
