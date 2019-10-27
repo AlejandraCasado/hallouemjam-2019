@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8573723736249446493
 Transform:
@@ -79,7 +79,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5003005913885582180
 Transform:
@@ -106,6 +106,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: croqueta (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
@@ -197,6 +202,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (23)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -286,6 +296,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesa
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: dc356b4e5f55505438e41604e1e6d671,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 927557807018285347, guid: dc356b4e5f55505438e41604e1e6d671,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -1688062372358014471, guid: dc356b4e5f55505438e41604e1e6d671,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -7358913056115005916, guid: dc356b4e5f55505438e41604e1e6d671,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -19332676414829642, guid: dc356b4e5f55505438e41604e1e6d671,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3740977928343100503, guid: dc356b4e5f55505438e41604e1e6d671,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dc356b4e5f55505438e41604e1e6d671,
         type: 3}
@@ -387,6 +427,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (19)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -476,6 +521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: vaso (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: da1187d6b75015b4f86547d5ba84d4f7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: da1187d6b75015b4f86547d5ba84d4f7,
         type: 3}
@@ -572,6 +622,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: vaso
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: da1187d6b75015b4f86547d5ba84d4f7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: da1187d6b75015b4f86547d5ba84d4f7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -642,6 +697,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.00094439404
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: da1187d6b75015b4f86547d5ba84d4f7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8b98ab4a42671244c87169135cb27b66, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da1187d6b75015b4f86547d5ba84d4f7, type: 3}
 --- !u!4 &5506985101518289586 stripped
@@ -661,6 +721,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: sandwich (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6009441497b610941b219388680be3e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6009441497b610941b219388680be3e8,
         type: 3}
@@ -752,6 +817,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (20)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -841,6 +911,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: sandwich (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6009441497b610941b219388680be3e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6009441497b610941b219388680be3e8,
         type: 3}
@@ -932,6 +1007,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (15)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1021,6 +1101,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: croqueta (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
@@ -1112,6 +1197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plato (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2c0279c0a80409a4fa76f2fe61c065a2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2c0279c0a80409a4fa76f2fe61c065a2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1201,6 +1291,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: croqueta (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
@@ -1292,6 +1387,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: sandwich (9)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6009441497b610941b219388680be3e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6009441497b610941b219388680be3e8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1381,6 +1481,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: croqueta (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
@@ -1472,6 +1577,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plato croquuetos
       objectReference: {fileID: 0}
+    - target: {fileID: 8182904747015923060, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2266568707053541606, guid: 33400aa897021e04faab6fa2fff1c72c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1527,6 +1637,101 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8064301162612524878, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309455165654760733, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3081582685256505670, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100002109283113173, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988627771109331343, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3763216679854909483, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177638365400592848, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8661428424516587921, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3571569885302266602, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908152715382243982, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348854282247389371, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4150416072313242640, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5207155766552501000, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 30564803018301658, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914312847581873748, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1084287222977309486, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062482352610620271, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826564819109124964, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487075732811467229, guid: 33400aa897021e04faab6fa2fff1c72c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33400aa897021e04faab6fa2fff1c72c, type: 3}
 --- !u!4 &3439853660941987470 stripped
@@ -1546,6 +1751,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: croqueta (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
@@ -1637,6 +1847,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (18)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1726,6 +1941,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: croqueta (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
@@ -1817,6 +2037,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (9)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1907,6 +2132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torre_Vasos
       objectReference: {fileID: 0}
+    - target: {fileID: 1391984840754769157, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6808530687585437290, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1977,6 +2207,46 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.56342
       objectReference: {fileID: 0}
+    - target: {fileID: 1051518249026329165, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215354070416873809, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224705580873738048, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2023623529271089688, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3340288317306074796, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494760874175578036, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982346790368606488, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8892153983610924175, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddc5d2d65bcb6b14a98e1e6dfd53352d, type: 3}
 --- !u!4 &7164198412031318186 stripped
@@ -1996,6 +2266,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: croqueta (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
@@ -2087,6 +2362,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (12)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2176,6 +2456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: sandwich (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6009441497b610941b219388680be3e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6009441497b610941b219388680be3e8,
         type: 3}
@@ -2267,6 +2552,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (22)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2356,6 +2646,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: croqueta (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
@@ -2447,6 +2742,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: sandwich (8)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6009441497b610941b219388680be3e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6009441497b610941b219388680be3e8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2537,6 +2837,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (17)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2626,6 +2931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: vaso (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: da1187d6b75015b4f86547d5ba84d4f7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: da1187d6b75015b4f86547d5ba84d4f7,
         type: 3}
@@ -2722,6 +3032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: sandwich (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6009441497b610941b219388680be3e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6009441497b610941b219388680be3e8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2811,6 +3126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: plato
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 2c0279c0a80409a4fa76f2fe61c065a2,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2c0279c0a80409a4fa76f2fe61c065a2,
         type: 3}
@@ -2902,6 +3222,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: croqueta (8)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2992,6 +3317,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: plato_sandwich_00
       objectReference: {fileID: 0}
+    - target: {fileID: 2701959409899937784, guid: 023e13859aed4e744a522fcaa2c710ff,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 7214528666871645955, guid: 023e13859aed4e744a522fcaa2c710ff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3047,6 +3377,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3624873309306934974, guid: 023e13859aed4e744a522fcaa2c710ff,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4764237534371585962, guid: 023e13859aed4e744a522fcaa2c710ff,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968124750837013542, guid: 023e13859aed4e744a522fcaa2c710ff,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380875304886593636, guid: 023e13859aed4e744a522fcaa2c710ff,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402762574709224948, guid: 023e13859aed4e744a522fcaa2c710ff,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6017228983754725454, guid: 023e13859aed4e744a522fcaa2c710ff,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6769049386957675932, guid: 023e13859aed4e744a522fcaa2c710ff,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 023e13859aed4e744a522fcaa2c710ff, type: 3}
 --- !u!4 &1265126158850254473 stripped
@@ -3066,6 +3431,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: tortilla
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cb6d0e674bbd2494abab2193c405ce32,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: cb6d0e674bbd2494abab2193c405ce32,
         type: 3}
@@ -3156,6 +3526,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: croqueta (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 93d46a9671fc48b4e974c8d4be3213e3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 93d46a9671fc48b4e974c8d4be3213e3,
         type: 3}
