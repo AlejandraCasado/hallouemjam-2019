@@ -17,6 +17,8 @@ public class script_gameController : MonoBehaviour
     float currentTime = 0f;
     public static float lifeTime;
 
+
+
     [SerializeField] Text count;
     [SerializeField] script_temporalText interactiveText;
     [SerializeField] Text finishText;
@@ -29,11 +31,12 @@ public class script_gameController : MonoBehaviour
     {
         finishText.enabled = false;
         count.enabled = false;
-        lifeTime = 1f;
+        lifeTime = 100f;
         mainSoundController = GetComponent<script_controlSoundCinematic>();
         character = GameObject.FindGameObjectWithTag("character");
         Cursor.lockState = CursorLockMode.Locked;
         audioScripts = GetComponents<script_audioScript>();
+        won = false;
     }
 
     private void Start()
@@ -107,6 +110,14 @@ public class script_gameController : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToReload);
         Application.LoadLevel("Menu");
+    }
+
+
+    public void writeInfoInScreen(string i)
+    {
+        string[] inf = new string[1];
+        inf[0] = i;
+        interactiveText.showInfo(3f, inf);
     }
 
 }
